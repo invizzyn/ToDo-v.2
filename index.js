@@ -193,7 +193,7 @@ taskInput.addEventListener('keydown', handleKey)
 
 btnDeleteAllCheckedTasks.addEventListener('click', () => {
     const start = tasksList.findIndex(item => item.complete == true)
-    if (start > 0) {
+    if (start >= 0) {
     tasksList.splice(start, tasksList.length + 1)
         uploadLocal();
         createHtmlList();}
