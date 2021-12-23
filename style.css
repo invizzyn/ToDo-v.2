@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,700;1,100&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Kanit', sans-serif;
+}
+
+body {
+    background: url("backhround.png");
+    background-size: cover;
+} 
+
+
+.container {
+    width: 720px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #9F6952
+}
+
+h1 {
+    font-size: 72px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+.add__todo {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    margin: 40px auto;
+    height: auto;
+}
+
+.input__todo input {
+    width: 400px;
+    font-size: 18px;
+    padding: 0 10px;
+    height: 39px;
+
+}
+
+.input__todo input::placeholder {
+    font-weight: 100;
+    font-style: italic;
+}
+
+.task__item {
+    display: flex;
+    justify-content: space-between;
+    width: 420px;
+    height: 39px;
+    margin: 20px auto;
+    background-color: white;
+    position: relative;
+    border-radius: .25rem;
+    font-size: 25px;
+}
+
+.checked {
+    background-color: yellow;
+}
+.btn-outline-secondary {
+    position: absolute;
+    right: 0;
+}
+
+.btn-group {
+    align-self: center;
+}
+
+.modal {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.form-control {
+    height: 39px;
+    resize: none;
+    overflow: hidden;
+}
+
+.hide {
+    display: none;
+}
