@@ -174,9 +174,6 @@ addTaskbtn.addEventListener('click', () => {
 
 const deleteTask = (index) => {
     new Modal (index);
-    // tasksList.splice(index, 1);
-    // uploadLocal();
-    // createHtmlList();
 }
 
 
@@ -196,69 +193,9 @@ taskInput.addEventListener('keydown', handleKey)
 
 btnDeleteAllCheckedTasks.addEventListener('click', () => {
     const start = tasksList.findIndex(item => item.complete == true)
-    if (start > 0) {
+    if (start >= 0) {
     tasksList.splice(start, tasksList.length + 1)
         uploadLocal();
         createHtmlList();}
     })
 
-
-
-// const editInput = addedTasks.querySelectorAll('.editable')
-
-
-
-// const editTask = (index) => {
-//     const taskItems = document.querySelectorAll('.task__item')
-//     taskItems.forEach(btn => {
-//         btn.addEventListener('dblclick', handlerEdit)
-//     })
-// }
-
-
-// tasksList.forEach((elem, index) => {
-//     //     if (elem.complete == true) {
-//     //         tasksList.splice(index, tasksList.length + 1)
-//     //     }
-
-
-
-
-// const editTask = (index) => {
-//     let btns = document.querySelectorAll('.edit');
-//     btns.forEach((btn) => {
-//         btn.classList.add('disabled')
-//     })
-//     let editableTask = btns[index].parentElement.previousElementSibling;
-//     editableTask.innerHTML = `
-//     <input class = 'editable form-control' autofocus value = ${editableTask.innerText}>
-//     `;
-//     editableTask.insertAdjacentHTML('beforeend', '<h6>Push "Enter" or "Escape" after change to save his</h6>')
-//     editableTask.addEventListener('keydown', (event) => {
-//         if (event.key === 'Enter' || event.key === 'Escape') {
-//             tasksList[index].description = editableTask.firstElementChild.value;
-//             uploadLocal();
-//             createHtmlList();
-//         }
-//     })
-    
-// }
-
-// editableTask.firstElementChild.addEventListener('keydown', event => {
-//     if (event.key === 'Enter' || event.key === 'Escape') {
-//         tasksList[index].description = editableTask.firstElementChild.value;
-//         uploadLocal()
-//         createHtmlList();
-//     }
-// })    
-
-    // addedTasksElem.forEach((elem, index) => {
-    //     elem.addEventListener('dblclick', () => {
-    //         let editableTask = elem.firstElementChild;
-    //         editableTask.innerHTML = `
-    //         <input class = 'editable form-control' autofocus value = ${editableTask.innerText}>
-    //         `;
-
-{/* <button onclick="editTask(${index})" class="edit btn btn-warning">Edit</i></button>  */}
-
-{/* <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"></button> */}
