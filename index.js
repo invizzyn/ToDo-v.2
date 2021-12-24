@@ -2,7 +2,8 @@
 const addTaskbtn = document.getElementById('add_task')
 const taskInput = document.getElementById('desc_task')
 const addedTasks = document.querySelector('.added__tasks')
-const btnDeleteAllCheckedTasks = document.getElementById('deleteAll')
+// const btnDeleteAllCheckedTasks = document.getElementById('deleteAll')
+const btnsFilter = document.querySelectorAll('.btn-light')
  
 
 
@@ -100,9 +101,26 @@ const createTemplate = (task, index) => {
 }
 
 const filterTasks = () => {
-    const activeTasks = tasksList.length && tasksList.filter(item => item.complete == false);
-    const completedTasks = tasksList.length && tasksList.filter(item => item.complete == true);
-    tasksList = [...activeTasks, ...completedTasks]
+    const [btnActive, btnComplete, btnAll] = btnsFilter
+    btnActive.addEventListener('click', () => {
+        document.querySelectorAll('.task__item').forEach(elem => {
+            if (elem.classList.contains('checked')) {
+                elem.style = 'display:none'
+            } else elem.style = 'display:flex'
+        })
+    })
+    btnComplete.addEventListener('click', () => {
+        document.querySelectorAll('.task__item').forEach(elem => {
+            if (!elem.classList.contains('checked')) {
+                elem.style = 'display:none'
+            } else elem.style = 'display:flex'
+        })
+    })
+    btnAll.addEventListener('click', () => {
+        document.querySelectorAll('.task__item').forEach(elem => {
+            elem.style = 'display:flex'
+        })
+    })
 }
 
 const createHtmlList = () => {
@@ -139,9 +157,13 @@ const createHtmlList = () => {
          
     }
     if (addedTasks.childElementCount > 0) {
-        btnDeleteAllCheckedTasks.style="display: block"
+        btnsFilter.forEach((elem) => {
+            elem.style="display: inline"
+        })
     } else {
-        btnDeleteAllCheckedTasks.style="display: none"
+        btnsFilter.forEach((elem) => {
+            elem.style="display: none"
+        })
     }
     
 }
@@ -191,11 +213,14 @@ const handleKey = (event) => {
 
 taskInput.addEventListener('keydown', handleKey)
 
-btnDeleteAllCheckedTasks.addEventListener('click', () => {
-    const start = tasksList.findIndex(item => item.complete == true)
-    if (start >= 0) {
-    tasksList.splice(start, tasksList.length + 1)
-        uploadLocal();
-        createHtmlList();}
-    })
+// btnDeleteAllCheckedTasks.addEventListener('click', () => {
+//     const start = tasksList.findIndex(item => item.complete == true)
+//     if (start >= 0) {
+//     tasksList.splice(start, tasksList.length + 1)
+//         uploadLocal();
+//         createHtmlList();}
+//     })
 
+// const activeTasks = tasksList.length && tasksList.filter(item => item.complete == false);
+    // const completedTasks = tasksList.length && tasksList.filter(item => item.complete == true);
+    // tasksList = [...activeTasks, ...completedTasks]

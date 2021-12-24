@@ -92,3 +92,9 @@ h2 {
 .hide {
     display: none;
 }
+
+.btn-light {
+    background-color: unset;
+    border-color: unset;
+    border: none;
+}
